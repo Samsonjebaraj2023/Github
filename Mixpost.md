@@ -26,51 +26,43 @@ Once done with Ubuntu installation run the following commands
 >
 - ## **Software**
 
-  1. PHP >= 8.2.0
+  1. For Mixpost the version of PHP >= 8.2.0
 
    ```
    sudo apt update
-   sudo apt install php libapache2-mod-php
+   sudo apt install php libapache2-mod-php -y
   ```
 
     The above  command installs PHP and the Apache PHP module (libapache2-mod-php), which enables Apache to handle PHP files
 
-  2. MySQL Database
+  2. Installing  Maria Database
 
    ```
-    sudo apt install mysql-server
+    sudo apt install mariadb-server -y
    ```
 
   3. Installing Web Server (Apache)
 
    ```
-   sudo apt install apache2
+   sudo apt install apache2 -y
    ```
 
   4. Installing Supervisor , FFmpeg , Redis 6.2 or higher
 
    ```
-   sudo apt install redis-server supervisor ffmpeg
+   sudo apt install redis-server supervisor ffmpeg -y
    ```
 
-  5. Installing Composer
+  5. Installing Composer -y
 
    ```
    sudo apt install composer
-
-   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-   
-   php -r "if (hash_file('sha384', 'composer-setup.php') ===        'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-   
-   php composer-setup.php
-
-   php -r "unlink('composer-setup.php');"
    ```
 
-  6. Installing  Curl , Zip ,  Unzip
+  6. Installing  Curl , Zip ,  Unzip 
 
   ```
-  sudo apt install zip unzip curl 
+  sudo apt install zip unzip curl -y
   ```
 
 - ## **PHP Extension**
@@ -111,11 +103,13 @@ In `Password`  you can modify the with your own value
 
   ```
   mysql 
+
   ALTER USER 'root'@'localhost' IDENTIFIED BY '<Password>';
+
   exit
   ```
 
-Adjust the `.env` file settings to match your project requirements like `DB_DATABASE`, `DB_USERNAME` , `DB_PASSWORD` , `APP_DEBUG`, `APP_URL` change into <http://localhost>
+Adjust the `.env` file settings to match your project requirements like `DB_DATABASE`, `DB_USERNAME` , `DB_PASSWORD` , `APP_DEBUG`, `APP_URL` change into `<http://localhost>`
 
   ```
   sudo nano .env
@@ -150,3 +144,6 @@ You can create an initial user by executing
   ```
   php artisan serve
   ```
+## Step 6 : **Access Mixpost**
+
+Navigate to `http://127.0.0.1:5000`  and the mixpost should appear with the login screen.
