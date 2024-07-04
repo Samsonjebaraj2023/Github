@@ -11,24 +11,24 @@
 1. Installing `PHP >= 8.2.0 `, `maria-db` ,` Web Server `, `composer`
    ```
    sudo apt update 
-   sudo apt install php libapache2-mod-php apache2 composer mariadb-server
+   sudo apt install php libapache2-mod-php apache2 composer mariadb-server -y
    ```
 2. Installing `Supervisor` , `FFmpeg `, `Redis 6.2 or higher`
    
    ```
-   sudo apt install redis-server supervisor ffmpeg
+   sudo apt install redis-server supervisor ffmpeg -y
    ```
 3. Installing  `Curl` , `Zip `,  `Unzip`
 
   ```
-  sudo apt install zip unzip curl
+  sudo apt install zip unzip curl -y
   ```
 - ## **PHP Extension**
 
  Installing php extenstion like `curl`, `mysql`,   `bcmath`,`gd` ,`mbstring`, `redis`, `xml`,`zip`, `intl`
 
 
-    sudo apt install php8.3-curl php8.3-mysql php8.3-bcmath php8.3-gd php8.3-mbstring php8.3-redis php8.3-xml php8.3-zip php8.3-intl
+    sudo apt install php8.3-curl php8.3-mysql php8.3-bcmath php8.3-gd php8.3-mbstring php8.3-redis php8.3-xml php8.3-zip php8.3-intl -y
 
 > # Steps to install mixpost
 
@@ -55,7 +55,7 @@ Get into a mariadb and set a username & password
 In `Password`  you can modify the with your own value
 
   ```
-  mysql 
+  sudo mysql 
   ALTER USER 'root'@'localhost' IDENTIFIED BY '<Password>';
   exit
   ```
