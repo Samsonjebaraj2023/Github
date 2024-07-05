@@ -32,13 +32,44 @@
 
 > # Steps to install mixpost
 
-## Step 1 : **Creating the application**
+## Step 1 : **Clone the repository from github**
+
+Open CMD and get into the directory In C drive or D drive run the following commands
+
+Install a composer 
+
+   ```
+   cd MixpostApp
+   composer install
+   ```
+## Step 2 : **Setting up .env file**
+Get into a maria-db and set a  `password`
 
   ```
-   composer create-project inovector/MixpostApp
-   ```
+  mysql 
 
-## Step 2 : **File Permissions**
+  ALTER USER 'root'@'localhost' IDENTIFIED BY '<Password>';
+
+  exit
+  ```
+Copy the `.env.example` file and create `.env` file Adjust the  file settings to match your project requirements like `DB_DATABASE`, `DB_USERNAME` , `DB_PASSWORD` , `APP_DEBUG`, `APP_URL` change into `<http://localhost>`
+
+In `Password`  you can modify the with your own value
+  ```
+  sudo nano .env 
+  ```
+
+## Step 3 : **Installing Dependency**
+
+  ```
+  sudo php artisan key:generate --ansi
+  sudo php artisan mixpost:setup-gitignore
+  sudo php artisan queue:batches-table
+  sudo php artisan mixpost:publish
+  sudo php artisan storage:link
+  ```
+
+## Step 4 : **File Permissions**
 
 Get into the mixpostapp directory and Change the file permission
 
@@ -48,23 +79,10 @@ Get into the mixpostapp directory and Change the file permission
   chmod -R 775 storage
   chmod -R 775 bootstrap/cache
   ```
-## Step 3 :  **Application Configuration** 
 
-Get into a mariadb and set a username & password
+## Step 5:  **Application Configuration**
 
-In `Password`  you can modify the with your own value
-
-  ```
-  sudo mysql 
-  ALTER USER 'root'@'localhost' IDENTIFIED BY '<Password>';
-  exit
-  ```
-Adjust the `.env` file settings to match your project requirements like `DB_DATABASE`, `DB_USERNAME` , `DB_PASSWORD` , `APP_DEBUG`, `APP_URL` change into `<http://localhost>`
-```
-  sudo nano .env
-  ```
-
-  **Optimize application**
+**Optimize application**
 
   ```
   php artisan optimize
@@ -75,22 +93,24 @@ Adjust the `.env` file settings to match your project requirements like `DB_DATA
   ```
   php artisan migrate
   ```
-## Step 4 : **Create the first user**
+
+## Step 6 : **Create the first user**
 
 You can create an initial user by executing
 
   ```
   php artisan mixpost-auth:create
   ```
-## Step 5 : **Start the server**
+
+## Step 7: **Start the server**
 
  The below Comment  will generate a url open through browser
 
   Using `Email Id` and `password` login into a mixpost which you provided before the step
 
   ```
-  php artisan serve --host=0.0.0.0 --port=8000
+  php artisan serve
   ```
-## Step 6 : **Access Mixpost**
+## Step 8 : **Access Mixpost**
 
-Navigate to `http://<EC2_INSTANCE_IP>:8000`  and the mixpost should appear with the login screen.
+Navigate to `http://127.0.0.1:5000`  and the mixpost should appear with the login screen.
