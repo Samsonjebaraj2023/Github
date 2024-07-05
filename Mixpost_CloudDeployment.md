@@ -26,10 +26,9 @@
 - ## **PHP Extension**
 
     Installing php extenstion like `curl`, `mysql`,   `bcmath`,`gd` ,`mbstring`, `redis`, `xml`,`zip`, `intl`
-
-
+    ```
     sudo apt install php8.3-curl php8.3-mysql php8.3-bcmath php8.3-gd php8.3-mbstring php8.3-redis php8.3-xml php8.3-zip php8.3-intl -y
-
+    ```
 > # Steps to install mixpost
 
 ## Step 1 : **Clone the repository from github**
