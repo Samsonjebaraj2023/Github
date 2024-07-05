@@ -156,4 +156,4 @@ You can create an initial user by executing
   ```
 ## Step 8 : **Access Mixpost**
 
-Navigate to `http://127.0.0.1:5000`  and the mixpost should appear with the login screen.
+Navigate to `http://127.0.0.1:8000`  and the mixpost should appear with the login screen.
